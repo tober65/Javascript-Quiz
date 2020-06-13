@@ -9,3 +9,8 @@
 .centered {
     text-align: center;
 }
+
+#startBtn {
+    color: white;
+    background-color: purple;
+}
