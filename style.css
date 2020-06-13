@@ -1,0 +1,11 @@
+#timer {
+    float: right;
+}
+
+#viewHighScores {
+    float: left;
+}
+
+.centered {
+    text-align: center;
+}
