@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-#startBtn {
+.purpleBtn {
     color: white;
     background-color: purple;
 }

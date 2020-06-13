@@ -15,3 +15,8 @@ function startTimer() {
         }
     }, 1000);
 }
+
+function goToHomepage() {
+    console.log("Go to homepage");
+    window.location.href = "./index.html"
+}
