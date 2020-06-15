@@ -14,3 +14,7 @@
     color: white;
     background-color: purple;
 }
+
+.hide {
+    display: none;
+}

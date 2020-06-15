@@ -10,10 +10,10 @@
 
 <body>
     <p id="viewHighScores"><a href="./high_scores.html">View High Scores</a></p>
-    <p id="timer">Time: 75</p>
+    <p id="timer">Time: 0</p>
 
     <br>
-    <div class="centered">
+    <div id="codingStartDiv" class="centered">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that 
             incorrect answers will penalize your score time by 10 seconds!</p>
@@ -21,8 +21,15 @@
         <button class="purpleBtn" id="startBtn" onClick="startTimer()">Start Timer</button>
     </div>
 
+    <div id="quizDiv" class="centered hide">
+        <h2 id="quizQuestion">What is your favorite color?</h2>
+        <button id="button0" class="purpleBtn">Red</button><br>
+        <button id="button1" class="purpleBtn">Blue</button><br>
+        <button id="button2" class="purpleBtn">Purple</button><br>
+        <button id="button3" class="purpleBtn">Green</button><br>
+    </div>
 
-    
+
     <script src="script.js"></script>
 </body>
 
