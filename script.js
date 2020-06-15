@@ -29,6 +29,8 @@ questions = [
 timeEl = document.getElementById("timer");
 codingStartEl = document.getElementById("codingStartDiv");
 quizEl = document.getElementById("quizDiv");
+finishedEl = document.getElementById("finishedDiv");
+initialsInputEl = document.getElementById("initialsInput");
 
 var questionEl = document.getElementById("quizQuestion");
 var answer0El = document.getElementById("button0");
@@ -36,9 +38,13 @@ var answer1El = document.getElementById("button1");
 var answer2El = document.getElementById("button2");
 var answer3El = document.getElementById("button3");
 
-var timeLeft = 5;
+var timerInterval;
+
+var timeLeft = 75;
 var correctAnswer = -1;
-questionIndex = 0;
+var questionIndex = 0;
+
+var initialsAndScores = [];
 
 function displayQuestion(question) {
     questionEl.textContent = question.question;
@@ -57,7 +63,7 @@ function startTimer() {
 
     displayQuestion(questions[questionIndex]);
 
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         timeLeft--;
         timeEl.textContent = "Time: " + timeLeft;
 
@@ -65,13 +71,9 @@ function startTimer() {
             timeLeft = 0;
             timeEl.textContent = "Time: " + timeLeft;
 
-            clearInterval(timerInterval);
+            stopQuiz();
         }
     }, 1000);
-}
-
-function goToHomepage() {
-    window.location.href = "./index.html"
 }
 
 function checkForRightAnswer(answer) {
@@ -93,7 +95,36 @@ function checkForRightAnswer(answer) {
 }
 
 function stopQuiz() {
-    //TODO
+    clearInterval(timerInterval);
+
+    timeEl.textContent = "Time: " + timeLeft;
+
+    var finalScore = document.getElementById("finalScore");
+    finalScore.textContent = "Your final score is " + timeLeft;
+
+    quizEl.classList.add("hide");
+    finishedEl.classList.remove("hide");
+}
+
+function processInitials() {
+    console.log("processInitials");
+    initials = initialsInputEl.value;
+    score = timeLeft;
+
+    initialsAndScores.push({initials: initials, score: score});
+    localStorage.setItem("scores", JSON.stringify(initialsAndScores));
+
+    window.location.href = "./high_scores.html"
+};
+
+function init() {
+    var scores = localStorage.getItem("scores");
+
+    initialsAndScores = JSON.parse(scores);
+
+    if (initialsAndScores === null) {
+        initialsAndScores = [];
+    }
 }
 
 answer0El.addEventListener("click", function () {
@@ -111,3 +142,5 @@ answer2El.addEventListener("click", function () {
 answer3El.addEventListener("click", function () {
     checkForRightAnswer(3);
 });
+
+init();
