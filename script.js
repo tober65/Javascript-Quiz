@@ -114,7 +114,7 @@ function processInitials() {
     initialsAndScores.push({initials: initials, score: score});
     localStorage.setItem("scores", JSON.stringify(initialsAndScores));
 
-    window.location.href = "./high_scores.html"
+    window.location.href = "./high_scores.html";
 };
 
 function init() {

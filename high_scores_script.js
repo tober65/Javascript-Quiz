@@ -5,7 +5,7 @@ function clearHighScores() {
 }
 
 function goToHomepage() {
-    window.location.href = "./index.html"
+    window.location.href = "./index.html";
 }
 
 function displayHighScores() {
