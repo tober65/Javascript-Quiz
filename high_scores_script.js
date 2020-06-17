@@ -22,9 +22,15 @@ function displayHighScores() {
 
     var sortedScores = scores.sort(function(a, b) {return b.score - a.score});
 
+    var shaded = true;
+
     for (var i = 0; i < sortedScores.length; i++) {
         var item = document.createElement("li");
         item.textContent = "" + sortedScores[i].initials + ": " + sortedScores[i].score;
+        if (shaded) {
+            item.setAttribute("style", "background-color: #DDDDDD");
+        }
+        shaded = !shaded;
         list.appendChild(item);
     }
 }
